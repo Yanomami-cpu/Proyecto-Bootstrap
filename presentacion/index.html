@@ -25,6 +25,7 @@
 .card h3{color:var(--maiz);margin-bottom:.4em}
 .card p{font-size:.8em;margin:0}
 .light .card.white{background:#fff;color:var(--selva)}
+.light .card.white h3{color:var(--selva)}
 .dark .card{background:var(--crema);color:var(--selva)}.dark .card h3{color:var(--achiote-osc);font-weight:800}
 .reveal code,.reveal pre.codigo{font-family:'Courier New',monospace}
 pre.codigo{background:var(--selva);color:var(--maiz);padding:18px;border-radius:12px;font-size:.55em;margin:10px 0 0;white-space:pre-wrap;width:auto;box-shadow:none}
@@ -35,76 +36,143 @@ pre.codigo{background:var(--selva);color:var(--maiz);padding:18px;border-radius:
 .reveal table th,.reveal table td{padding:8px 14px;border-bottom:2px solid rgba(31,42,28,.2);text-align:left}
 .reveal table th{font-weight:800;color:var(--achiote-osc)}
 .pie{font-size:.75em;color:var(--achiote-osc);margin-top:24px!important}
+.pueblos{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pueblos span{border:2px solid var(--maiz);border-radius:999px;padding:4px 16px;font-size:.6em;color:var(--maiz)}
+.lista{font-size:.85em;line-height:1.5;margin:0;padding-left:1.1em}
+.lista li{margin:.25em 0}
+/* Maqueta de la web demo */
+.maqueta{display:grid;grid-template-columns:2fr 1fr;gap:8px;font-size:.5em;font-weight:600}
+.maqueta div{border-radius:8px;padding:10px 14px;color:var(--selva);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.maqueta code{font-size:.95em;font-weight:400;background:rgba(255,255,255,.55);padding:2px 6px;border-radius:4px}
+.maqueta .ancho{grid-column:1/-1}
+.m1{background:#fff;border:2px solid rgba(31,42,28,.15)}.m2{background:var(--maiz)}.m3{background:var(--achiote)}
+.m-main{min-height:150px;align-items:flex-start!important}
+.demo-btn{display:inline-block;margin-top:24px;background:var(--maiz);color:var(--selva)!important;padding:12px 28px;border-radius:999px;font-weight:800;font-size:.8em}
 </style>
 </head>
 <body>
 <div class="reveal"><div class="slides">
 
+<!-- 1 · PORTADA (~30 s) -->
 <section class="dark" data-background-color="#1f2a1c">
   <div class="rombos"><div class="rombo" style="background:#e0572f"></div><div class="rombo" style="background:#f2b632"></div><div class="rombo" style="background:#e0572f"></div></div>
   <h1>Bootstrap, pero con sabor originario</h1>
-  <p class="sub">Un framework explicado con Yanomami, Pemón, Warao y Timotocuicas</p>
-  <aside class="notes">Nota: Tucupita es la capital del estado Delta Amacuro, territorio del pueblo Warao; por eso usamos Warao. Las comparaciones son de inspiración y con respeto.</aside>
+  <p class="sub">Cómo maquetar una web rápida y adaptable sin empezar de cero</p>
+  <div class="pueblos"><span>Yanomami</span><span>Timotocuicas</span><span>Pemón</span><span>Warao</span><span>Wayuu</span></div>
+  <aside class="notes">~30 s. Hoy vemos qué es Bootstrap y lo usamos en una web real sobre cinco pueblos originarios de Venezuela. Las comparaciones son para inspirarnos, hechas con respeto. Recordatorio: "guajiro" es el nombre que les dieron desde fuera; ellos se llaman wayuu.</aside>
 </section>
 
+<!-- 2 · QUÉ ES (~1 min) -->
 <section data-background-color="#f4ecd8" class="light">
   <h2>¿Qué es Bootstrap?</h2>
+  <p style="font-size:.85em">Una caja de piezas ya diseñadas para construir webs. Tú pones las clases en el HTML y Bootstrap pone el estilo.</p>
   <div class="cards">
-    <div class="card fragment"><h3>CSS + JS ya hecho</h3><p>Clases listas para botones, menús, tarjetas y rejillas.</p></div>
-    <div class="card fragment"><h3>Mobile first</h3><p>Se diseña primero para el móvil y luego se amplía.</p></div>
-    <div class="card fragment"><h3>Open source</h3><p>Nació en Twitter y hoy lo usa medio internet.</p></div>
+    <div class="card fragment"><h3>Piezas listas</h3><p>Botones, menús, tarjetas, formularios, ventanas…</p></div>
+    <div class="card fragment"><h3>Mobile first</h3><p>Pensado primero para el móvil, luego se amplía a pantallas grandes.</p></div>
+    <div class="card fragment"><h3>Gratis y popular</h3><p>Open source, creado en Twitter. Lo encontrarás en muchísimas webs.</p></div>
   </div>
   <p class="humor fragment">Es el conuco del frontend: llegas y ya está sembrado.</p>
-  <aside class="notes">Chiste: el conuco es la parcela de cultivo tradicional. Con Bootstrap no empiezas de cero.</aside>
+  <aside class="notes">~1 min. El conuco es la parcela de cultivo tradicional. Con Bootstrap no partes de tierra vacía: ya hay algo plantado y tú decides qué cosechar.</aside>
 </section>
 
+<!-- 3 · POR QUÉ A UN DISEÑADOR (~1 min) -->
+<section data-background-color="#1f2a1c" class="dark">
+  <h2>¿Y a mí, como diseñador, qué me aporta?</h2>
+  <ul class="lista">
+    <li class="fragment"><strong style="color:var(--maiz)">Prototipar rápido:</strong> pasas de boceto a web real en una tarde.</li>
+    <li class="fragment"><strong style="color:var(--maiz)">Coherencia:</strong> mismos espacios, tamaños y botones en todas las páginas.</li>
+    <li class="fragment"><strong style="color:var(--maiz)">Responsive incluido:</strong> se ve bien en móvil sin esfuerzo extra.</li>
+    <li class="fragment"><strong style="color:var(--maiz)">Idioma común:</strong> hablas el mismo lenguaje que el equipo de desarrollo.</li>
+  </ul>
+  <aside class="notes">~1 min. Enfocarlo a su perfil: no hace falta ser programador. Bootstrap es un sistema de diseño ya hecho.</aside>
+</section>
+
+<!-- 4 · CÓMO EMPEZAR (~1 min) -->
 <section data-background-color="#f4ecd8" class="light">
-  <h2>Cómo usarlo en 2 pasos</h2>
+  <h2>Empezar: 2 pasos</h2>
   <div class="cards">
-    <div class="card white"><h3 style="color:#1f2a1c">1. Enlaza el CDN</h3><pre class="codigo">&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</pre></div>
-    <div class="card white"><h3 style="color:#1f2a1c">2. Pon clases</h3><pre class="codigo">&lt;button class="btn btn-primary"&gt;Entrar&lt;/button&gt;</pre></div>
+    <div class="card white"><h3>1. Enlaza Bootstrap</h3><p>Una línea en el <code>&lt;head&gt;</code>:</p><pre class="codigo">&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;</pre></div>
+    <div class="card white"><h3>2. Usa sus clases</h3><p>Escribe HTML normal y añade clases:</p><pre class="codigo">&lt;button class="btn btn-primary"&gt;Entrar&lt;/button&gt;</pre></div>
   </div>
   <p class="pie" style="color:#1f2a1c">Sin escribir CSS, ya tienes un botón con estilo. Magia, pero con documentación.</p>
+  <aside class="notes">~1 min. No hay que instalar nada. Si usamos menús desplegables o ventanas modales, se añade también el JS de Bootstrap con otra línea.</aside>
 </section>
 
+<!-- 5 · GRID (~1 min 15 s) -->
 <section data-background-color="#1f2a1c" class="dark">
   <h2>El grid: el shabono de 12 columnas</h2>
   <div class="fila"><div class="col c-a" style="flex:12">col-12</div></div>
-  <div class="fila"><div class="col c-m" style="flex:6">col-6</div><div class="col c-m" style="flex:6">col-6</div></div>
+  <div class="fila"><div class="col c-m" style="flex:8">col-8 · artículos</div><div class="col c-m" style="flex:4">col-4 · lateral</div></div>
   <div class="fila"><div class="col c-c" style="flex:4">col-4</div><div class="col c-c" style="flex:4">col-4</div><div class="col c-c" style="flex:4">col-4</div></div>
-  <p style="font-size:.8em">Como en un shabono yanomami, todos caben alrededor del mismo espacio común: 12 puestos, tú decides cómo repartirlos.</p>
-  <aside class="notes">El shabono es la gran vivienda colectiva circular yanomami. Es una analogía sobre compartir un espacio común.</aside>
+  <p style="font-size:.75em">Como en un shabono yanomami, todos comparten el mismo espacio: <strong style="color:var(--maiz)">12 puestos</strong> que tú repartes. Y todo vive dentro de un <code>container</code>, la meseta del tepuy pemón: un espacio centrado y con bordes.</p>
+  <aside class="notes">~1 min 15 s. El shabono es la gran vivienda circular colectiva yanomami. Los tepuyes son las montañas de cima plana de la Gran Sabana. La fila col-8 + col-4 es justo la que veremos en la demo.</aside>
 </section>
 
+<!-- 6 · BREAKPOINTS (~1 min) -->
 <section data-background-color="#f4ecd8" class="light">
   <h2>Breakpoints: las terrazas timotocuicas</h2>
   <table>
     <tr><th>Prefijo</th><th>Desde</th><th>Pantalla</th></tr>
-    <tr class="fragment"><td>(sin prefijo)</td><td>0 px</td><td>Móvil</td></tr>
-    <tr class="fragment"><td>sm</td><td>576 px</td><td>Móvil grande</td></tr>
-    <tr class="fragment"><td>md</td><td>768 px</td><td>Tablet</td></tr>
-    <tr class="fragment"><td>lg</td><td>992 px</td><td>Laptop</td></tr>
-    <tr class="fragment"><td>xl</td><td>1200 px</td><td>Escritorio</td></tr>
-    <tr class="fragment"><td>xxl</td><td>1400 px</td><td>Pantalla grande</td></tr>
+    <tr><td>(sin prefijo)</td><td>0 px</td><td>Móvil</td></tr>
+    <tr><td>sm</td><td>576 px</td><td>Móvil grande</td></tr>
+    <tr><td>md</td><td>768 px</td><td>Tablet</td></tr>
+    <tr><td>lg</td><td>992 px</td><td>Portátil</td></tr>
+    <tr><td>xl / xxl</td><td>1200 / 1400 px</td><td>Escritorio y pantallas grandes</td></tr>
   </table>
-  <p class="pie">Cada escalón sube la ladera, y tu diseño se reacomoda: <code>col-md-6</code> = 6 columnas desde tablet.</p>
-  <aside class="notes">Los pueblos andinos timotocuicas cultivaban en terrazas. Cada breakpoint es un nivel nuevo del terreno.</aside>
+  <p class="pie">Cada escalón sube la ladera y el diseño se reacomoda: <code>col-md-8</code> = “ocupa 8 columnas desde tablet; en móvil, todo el ancho”.</p>
+  <aside class="notes">~1 min. Los timotocuicas cultivaban en terrazas en los Andes. Cada breakpoint es un escalón: a partir de ese ancho, cambia la distribución. En la demo lo veremos estrechando la ventana.</aside>
 </section>
 
+<!-- 7 · COMPONENTES Y UTILIDADES (~1 min) -->
 <section data-background-color="#1f2a1c" class="dark">
-  <h2>Más valores de Bootstrap</h2>
+  <h2>Componentes y utilidades</h2>
   <div class="cards">
-    <div class="card"><h3>Utilidades</h3><p><code>m-3</code>, <code>p-4</code>, <code>d-flex</code>, <code>text-center</code>. Clases pequeñas que sostienen todo, como los tepuyes de los Pemón.</p></div>
-    <div class="card"><h3>Responsive</h3><p>Se adapta a cada pantalla, como el agua del delta, hogar de los Warao en Tucupita.</p></div>
-    <div class="card"><h3>Componentes</h3><p>Navbar, card, modal y carousel: el conuco ya cultivado.</p></div>
+    <div class="card"><h3>Componentes</h3><p>Piezas completas: <code>navbar</code>, <code>card</code>, <code>modal</code>, <code>carousel</code>. Las copias de la documentación y las adaptas.</p></div>
+    <div class="card"><h3>Utilidades</h3><p>Clases pequeñas para un solo detalle: <code>p-4</code> (relleno), <code>mb-3</code> (margen), <code>text-center</code>. Como los hilos de una mochila wayuu: sueltos son simples, juntos forman el dibujo.</p></div>
   </div>
-  <p class="sub" style="margin-top:30px">Y con las variables <code>--bs-primary</code> puedes cambiar la paleta entera.</p>
+  <p class="sub" style="margin-top:30px">Y todo se adapta a la pantalla como el agua del delta, hogar de los Warao.</p>
+  <aside class="notes">~1 min. Los wayuu son famosos por sus mochilas tejidas. Los warao viven en palafitos en el delta del Orinoco (Tucupita).</aside>
 </section>
 
+<!-- 8 · DEMO: ANATOMÍA (~1 min) -->
+<section data-background-color="#f4ecd8" class="light">
+  <h2>Demo: un blog 100 % Bootstrap</h2>
+  <div class="maqueta">
+    <div class="m1 ancho">Cabecera + menú <code>row · col-4 · nav</code></div>
+    <div class="m3 ancho">Destacado <code>p-5 · rounded · display-4</code></div>
+    <div class="m2">Tarjeta Wayuu <code>col-md-6</code></div><div class="m2">Tarjeta Warao <code>col-md-6</code></div>
+    <div class="m1 m-main">Artículos de los 5 pueblos <code>col-md-8</code></div><div class="m1 m-main">Lateral <code>col-md-4 · list-group · badge</code></div>
+    <div class="m3 ancho">Pie + ventana “Colabora” <code>modal</code></div>
+  </div>
+  <p class="pie">Basado en la plantilla <em>Blog</em> de los ejemplos oficiales de Bootstrap.</p>
+  <aside class="notes">~1 min. Señalar que la estructura sale de la plantilla oficial: no hemos inventado el layout, lo hemos adaptado al contenido.</aside>
+</section>
+
+<!-- 9 · DEMO EN VIVO (~2 min) -->
+<section data-background-iframe="../demo/index.html" data-background-interactive>
+  <aside class="notes">~2 min. Recorrido: 1) menú y anclas a cada pueblo; 2) estrechar la ventana (o F12 → modo móvil): las tarjetas y el lateral bajan debajo; 3) abrir el botón “Colabora” (modal, sin escribir JavaScript); 4) enseñar en el código el bloque &lt;style&gt;: unas 30 líneas son toda nuestra identidad. Si el iframe no carga, abrir demo/index.html en otra pestaña.</aside>
+</section>
+
+<!-- 10 · PERSONALIZAR (~45 s) -->
 <section data-background-color="#e0572f" class="accent">
-  <h2 style="font-size:2.3em">Bootstrap sostiene tu diseño, no lo reemplaza</h2>
-  <p style="font-weight:600;font-size:1.15em">Personaliza colores, tipografía y espacios para que no parezca “otro sitio Bootstrap”.</p>
-  <aside class="notes">Cierre para diseñadores: usa el framework como estructura y pon tu identidad encima.</aside>
+  <h2 style="font-size:2.2em">Bootstrap sostiene tu diseño, no lo reemplaza</h2>
+  <p style="font-weight:600;font-size:1em">En la demo cambiamos tipografía, colores y botones con unas pocas líneas de CSS. Así no parece “otro sitio Bootstrap”.</p>
+  <pre class="codigo" style="font-size:.5em">:root { --bs-body-font-family: 'Poppins', sans-serif; }
+.btn-achiote { --bs-btn-bg: #e0572f; }</pre>
+  <aside class="notes">~45 s. Mensaje para diseñadores: el framework es la estructura; la identidad visual la ponéis vosotros.</aside>
+</section>
+
+<!-- 11 · CIERRE (~30 s) -->
+<section data-background-color="#1f2a1c" class="dark">
+  <div class="rombos"><div class="rombo" style="background:#f2b632"></div><div class="rombo" style="background:#e0572f"></div><div class="rombo" style="background:#f2b632"></div></div>
+  <h2>Tu turno</h2>
+  <ul class="lista">
+    <li>Elige una plantilla en <strong style="color:var(--maiz)">getbootstrap.com/docs/5.3/examples</strong></li>
+    <li>Cámbiale el contenido y los colores</li>
+    <li>Comprueba cómo se ve en el móvil</li>
+  </ul>
+  <a class="demo-btn" href="../demo/index.html" target="_blank">Abrir la demo</a>
+  <aside class="notes">~30 s. Propuesta de ejercicio para clase. Preguntas.</aside>
 </section>
 
 </div></div>
