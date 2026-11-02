@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" role="img" aria-label="Shabono yanomami visto desde arriba">
+  <rect width="200" height="250" fill="#1f2a1c"/>
+  <circle cx="100" cy="125" r="78" fill="#3d5a2e"/>
+  <circle cx="100" cy="125" r="78" fill="none" stroke="#f2b632" stroke-width="16" stroke-dasharray="10 5"/>
+  <circle cx="100" cy="125" r="46" fill="#c9a66b"/>
+  <circle cx="100" cy="125" r="6" fill="#e0572f"/>
+</svg>

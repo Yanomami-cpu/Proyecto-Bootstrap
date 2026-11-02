@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" role="img" aria-label="Tepuy con cascada">
+  <rect width="200" height="250" fill="#f4ecd8"/>
+  <path d="M20 250 45 90h110l25 160z" fill="#7a4a35"/>
+  <path d="M45 90h110l-4 14H49z" fill="#3d5a2e"/>
+  <rect x="112" y="100" width="6" height="150" fill="#d9eef7"/>
+  <path d="M0 250v-30c40-10 160-10 200 0v30z" fill="#3d5a2e"/>
+</svg>

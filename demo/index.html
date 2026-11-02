@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pueblos de Venezuela · Blog</title>
+
+  <!-- 1. Bootstrap desde CDN: con esto ya tenemos todo el CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- 2. Nuestra capa de identidad: pocas líneas encima de Bootstrap -->
+  <style>
+    :root {
+      --selva: #1f2a1c;
+      --crema: #f4ecd8;
+      --achiote: #e0572f;
+      --maiz: #f2b632;
+      /* Variables propias de Bootstrap que sobrescribimos */
+      --bs-body-font-family: 'Poppins', system-ui, sans-serif;
+      --bs-body-color: #2b2b2b;
+      --bs-link-color-rgb: 194, 67, 31;
+      --bs-link-hover-color-rgb: 31, 42, 28;
+    }
+    h1, h2, h3, h4, .display-4, .blog-header-logo { font-family: 'Playfair Display', Georgia, serif; }
+
+    .blog-header { border-bottom: 1px solid #e5e5e5; }
+    .blog-header-logo { font-size: clamp(1.2rem, 4vw, 2.1rem); color: var(--selva); }
+    .blog-header-logo:hover { text-decoration: none; color: var(--achiote); }
+
+    .nav-scroller { overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+    .nav-scroller .nav-link { color: #6c757d; }
+    .nav-scroller .nav-link:hover { color: var(--achiote); }
+
+    .bg-selva { background: var(--selva); }
+    @media (min-width: 992px) {
+      .bg-selva { background: var(--selva) url("img/wayuu.svg") right / auto 100% no-repeat; }
+      .h-md-250 { height: 250px; }
+    }
+    .text-maiz { color: var(--maiz); }
+
+    .btn-achiote { --bs-btn-bg: var(--achiote); --bs-btn-border-color: var(--achiote);
+                   --bs-btn-hover-bg: #c2431f; --bs-btn-hover-border-color: #c2431f; --bs-btn-color: #fff; --bs-btn-hover-color: #fff; }
+
+    .blog-post { margin-bottom: 2rem; scroll-margin-top: 1rem; }
+    .blog-post-title { font-size: 2.2rem; }
+    .blog-post:hover { box-shadow: 0 .5rem 1rem rgba(31,42,28,.12) !important; transition: box-shadow .2s; }
+    .blog-post-meta { color: #727272; margin-bottom: 1.25rem; }
+    .blog-post blockquote { border-left: 4px solid var(--maiz); padding-left: 1rem; font-style: italic; }
+
+    .accordion { --bs-accordion-active-bg: var(--crema); --bs-accordion-active-color: var(--selva);
+                 --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem rgba(242,182,50,.35); }
+    .thumb { width: 200px; height: 250px; object-fit: cover; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- CABECERA: un row con 3 columnas -->
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-md-4 d-none d-md-block pt-1">
+        <a class="link-secondary" href="#">Suscríbete</a>
+      </div>
+      <div class="col-7 col-md-4 text-md-center">
+        <a class="blog-header-logo fw-bold text-decoration-none" href="#">Pueblos de Venezuela</a>
+      </div>
+      <div class="col-5 col-md-4 d-flex justify-content-end align-items-center gap-2">
+        <a class="link-secondary" href="#" aria-label="Buscar"><i class="bi bi-search"></i></a>
+        <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#colabora">Colabora</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ: nav horizontal que hace scroll en móvil -->
+  <div class="nav-scroller py-1 mb-3 border-bottom">
+    <nav class="nav flex-nowrap justify-content-between">
+      <a class="nav-link p-2" href="#yanomami">Yanomami</a>
+      <a class="nav-link p-2" href="#timotocuicas">Timotocuicas</a>
+      <a class="nav-link p-2" href="#pemon">Pemón</a>
+      <a class="nav-link p-2" href="#warao">Warao</a>
+      <a class="nav-link p-2" href="#wayuu">Wayuu</a>
+      <a class="nav-link p-2" href="#lenguas">Lenguas</a>
+      <a class="nav-link p-2" href="#artesania">Artesanía</a>
+      <a class="nav-link p-2" href="#territorios">Territorios</a>
+    </nav>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- DESTACADO (el antiguo "jumbotron") -->
+  <div class="p-4 p-md-5 mb-4 rounded text-white bg-selva">
+    <div class="col-lg-7 px-0">
+      <h1 class="display-4 fst-italic">Cinco pueblos, cinco paisajes</h1>
+      <p class="lead my-3">De la selva amazónica al desierto de La Guajira, de los páramos andinos al delta del Orinoco: un recorrido por cinco pueblos originarios de Venezuela.</p>
+      <p class="lead mb-0"><a href="#yanomami" class="text-maiz fw-bold">Empieza a leer…</a></p>
+    </div>
+  </div>
+
+  <!-- DOS TARJETAS: row + col-md-6 -->
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column">
+          <strong class="d-inline-block mb-2 text-danger-emphasis">Zulia</strong>
+          <h3 class="mb-0">Wayuu: el pueblo del tejido</h3>
+          <div class="mb-1 text-body-secondary">Península de La Guajira</div>
+          <p class="card-text mb-auto">El pueblo indígena más numeroso del país, famoso por sus mochilas y chinchorros.</p>
+          <a href="#wayuu" class="stretched-link">Seguir leyendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="thumb" src="img/wayuu.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column">
+          <strong class="d-inline-block mb-2 text-success-emphasis">Delta Amacuro</strong>
+          <h3 class="mb-0">Warao: la gente del agua</h3>
+          <div class="mb-1 text-body-secondary">Delta del Orinoco</div>
+          <p class="card-text mb-auto">Viven en palafitos sobre los caños del delta y se mueven en curiara.</p>
+          <a href="#warao" class="stretched-link">Seguir leyendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="thumb" src="img/warao.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUERPO: 8 columnas de artículos + 4 de barra lateral -->
+  <div class="row gx-md-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">Crónicas de los pueblos</h3>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="yanomami">
+        <h2 class="blog-post-title">Yanomami</h2>
+        <p class="blog-post-meta">Estado Amazonas · Alto Orinoco</p>
+        <p>Los yanomami viven en la selva del Alto Orinoco, a ambos lados de la frontera entre Venezuela y Brasil. Son uno de los pueblos amazónicos que más ha conservado su forma de vida tradicional.</p>
+        <p>Su casa es el <strong>shabono</strong>: una gran vivienda circular y colectiva con una plaza abierta en el centro, donde conviven varias familias.</p>
+        <ul>
+          <li>Cultivan conucos de plátano y yuca.</li>
+          <li>Cazan, pescan y recolectan frutos de la selva.</li>
+          <li>Hoy su territorio está amenazado por la minería ilegal.</li>
+        </ul>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="timotocuicas">
+        <h2 class="blog-post-title">Timotocuicas</h2>
+        <p class="blog-post-meta">Andes venezolanos · Mérida y Trujillo</p>
+        <p>Los timotes y cuicas fueron los pueblos andinos de la Venezuela prehispánica. Transformaron las laderas de las montañas en <strong>terrazas de cultivo</strong> con canales de riego.</p>
+        <blockquote class="my-4">
+          <p class="mb-0">Muchos lugares andinos conservan su huella en el nombre: Mucuchíes, Mucurubá o Mucutuy, donde <em>mucu</em> significa “lugar de”.</p>
+        </blockquote>
+        <p>Lo que cultivaban en sus terrazas:</p>
+        <ol>
+          <li>Papa y maíz.</li>
+          <li>Apio criollo (arracacha).</li>
+          <li>Algodón para tejer.</li>
+        </ol>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="pemon">
+        <h2 class="blog-post-title">Pemón</h2>
+        <p class="blog-post-meta">Estado Bolívar · Gran Sabana</p>
+        <p>Los pemón habitan la Gran Sabana, dentro del Parque Nacional Canaima, rodeados de <strong>tepuyes</strong>: enormes montañas de cima plana que aparecen en muchos de sus relatos.</p>
+        <p>En su territorio está <em>Kerepakupai Merú</em>, el Salto Ángel, la cascada más alta del mundo.</p>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped">
+            <thead><tr><th>Lugar</th><th>Qué es</th></tr></thead>
+            <tbody>
+              <tr><td>Roraima</td><td>Tepuy en la frontera con Brasil y Guyana</td></tr>
+              <tr><td>Kerepakupai Merú</td><td>Salto Ángel, unos 979 m de caída</td></tr>
+              <tr><td>Canaima</td><td>Parque Nacional, Patrimonio de la Humanidad</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="warao">
+        <h2 class="blog-post-title">Warao</h2>
+        <p class="blog-post-meta">Delta Amacuro · Tucupita</p>
+        <p>Su nombre suele traducirse como “gente de las canoas”. Construyen sus casas en <strong>palafitos</strong> sobre los caños del delta y son grandes constructores de curiaras.</p>
+        <p>La palma de <strong>moriche</strong> es su “árbol de la vida”: de ella sacan alimento, fibra para chinchorros y materiales para la casa.</p>
+        <p>Su lengua, el warao, no está emparentada con ninguna otra conocida.</p>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="wayuu">
+        <h2 class="blog-post-title">Wayuu (guajiros)</h2>
+        <p class="blog-post-meta">Zulia · Península de La Guajira</p>
+        <p>Los wayuu, también llamados guajiros, son el pueblo indígena más numeroso de Venezuela y viven a ambos lados de la frontera con Colombia. Hablan <strong>wayuunaiki</strong>.</p>
+        <p>Sus mochilas y chinchorros tejidos son conocidos en todo el mundo. Según su tradición, aprendieron a tejer de <em>Wale’kerü</em>, la araña.</p>
+        <p>La figura del <strong>palabrero</strong> (pütchipü’ü), que resuelve conflictos con el diálogo, es Patrimonio Cultural Inmaterial de la UNESCO.</p>
+      </article>
+
+      <h3 class="pb-4 my-4 fst-italic border-bottom">Temas</h3>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="lenguas">
+        <h2 class="blog-post-title">Lenguas</h2>
+        <p class="blog-post-meta">Cinco pueblos, cinco formas de nombrar el mundo</p>
+        <p>Cada pueblo tiene su propia lengua, y muchas no se parecen entre sí: pertenecen a <strong>familias lingüísticas</strong> distintas, igual que el español y el japonés.</p>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle">
+            <thead><tr><th>Pueblo</th><th>Lengua</th><th>Familia</th></tr></thead>
+            <tbody>
+              <tr><td>Wayuu</td><td>Wayuunaiki</td><td>Arawak</td></tr>
+              <tr><td>Pemón</td><td>Pemón</td><td>Caribe</td></tr>
+              <tr><td>Yanomami</td><td>Yanomami</td><td>Yanomami</td></tr>
+              <tr><td>Warao</td><td>Warao</td><td><span class="badge text-bg-secondary">Lengua aislada</span></td></tr>
+              <tr><td>Timotocuicas</td><td>Timote y cuica</td><td><span class="badge text-bg-dark">Extintas</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mb-0">La Constitución venezolana de 1999 reconoce los idiomas indígenas como oficiales para sus pueblos, y la Ley de Idiomas Indígenas (2008) protege su uso y enseñanza.</p>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="artesania">
+        <h2 class="blog-post-title">Artesanía</h2>
+        <p class="blog-post-meta">Lo que se teje, se trenza y se modela</p>
+        <p>La artesanía no es decoración: son objetos de uso diario que guardan conocimientos, símbolos e historias.</p>
+        <div class="row row-cols-1 row-cols-sm-2 g-3">
+          <div class="col"><div class="card h-100 border-0" style="background:var(--crema)"><div class="card-body">
+            <h3 class="h5 card-title">Wayuu</h3><p class="card-text small mb-0">Mochilas y chinchorros tejidos con dibujos geométricos llamados <em>kanasü</em>.</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100 border-0" style="background:var(--crema)"><div class="card-body">
+            <h3 class="h5 card-title">Warao</h3><p class="card-text small mb-0">Cestas y chinchorros de fibra de moriche, y figuras de animales talladas en madera.</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100 border-0" style="background:var(--crema)"><div class="card-body">
+            <h3 class="h5 card-title">Yanomami</h3><p class="card-text small mb-0">Cestas de bejuco decoradas y pintura corporal con onoto (achiote).</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100 border-0" style="background:var(--crema)"><div class="card-body">
+            <h3 class="h5 card-title">Pemón</h3><p class="card-text small mb-0">Cestería trenzada con fibras vegetales de la sabana, para cargar y guardar alimentos.</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100 border-0" style="background:var(--crema)"><div class="card-body">
+            <h3 class="h5 card-title">Timotocuicas</h3><p class="card-text small mb-0">Figuras de barro, vasijas y mantas de algodón halladas en los Andes.</p>
+          </div></div></div>
+        </div>
+      </article>
+
+      <article class="blog-post p-4 bg-white border rounded-3 shadow-sm" id="territorios">
+        <h2 class="blog-post-title">Territorios</h2>
+        <p class="blog-post-meta">Selva, montaña, sabana, delta y desierto</p>
+        <p>Cada pueblo se ha adaptado a un paisaje muy distinto. Pulsa en cada uno para ver dónde vive:</p>
+        <div class="accordion" id="acordeonTerritorios">
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#t1">Yanomami · Selva amazónica</button></h3>
+            <div id="t1" class="accordion-collapse collapse show" data-bs-parent="#acordeonTerritorios"><div class="accordion-body">Estado Amazonas, en la Sierra Parima y el Alto Orinoco, junto a la frontera con Brasil. Selva tropical húmeda y ríos.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t2">Timotocuicas · Andes</button></h3>
+            <div id="t2" class="accordion-collapse collapse" data-bs-parent="#acordeonTerritorios"><div class="accordion-body">Mérida, Trujillo y el norte de Táchira. Valles altos, laderas en terrazas y páramos con lagunas.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t3">Pemón · Gran Sabana</button></h3>
+            <div id="t3" class="accordion-collapse collapse" data-bs-parent="#acordeonTerritorios"><div class="accordion-body">Sureste del estado Bolívar, cerca de Brasil y Guyana. Sabanas, ríos, cascadas y tepuyes.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t4">Warao · Delta del Orinoco</button></h3>
+            <div id="t4" class="accordion-collapse collapse" data-bs-parent="#acordeonTerritorios"><div class="accordion-body">Sobre todo Delta Amacuro, y también zonas de Monagas y Sucre. Caños, manglares y selva inundable.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t5">Wayuu · Península de La Guajira</button></h3>
+            <div id="t5" class="accordion-collapse collapse" data-bs-parent="#acordeonTerritorios"><div class="accordion-body">Norte del Zulia, compartida con Colombia. Clima seco y semidesértico, con cardones y cría de cabras.</div></div>
+          </div>
+        </div>
+      </article>
+
+      <nav class="blog-pagination mb-5" aria-label="Paginación">
+        <a class="btn btn-achiote rounded-pill" href="#">Anteriores</a>
+        <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Recientes</a>
+      </nav>
+    </div>
+
+    <!-- BARRA LATERAL -->
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 rounded" style="background: var(--crema)">
+          <h4 class="fst-italic">Sobre este blog</h4>
+          <p class="mb-0">Demo para el curso de FP de Diseño Web: una web hecha <strong>íntegramente con Bootstrap 5</strong>, con unas pocas líneas de CSS propio para darle identidad.</p>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">¿Dónde viven?</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">Yanomami <span class="badge text-bg-success">Amazonas</span></li>
+            <li class="list-group-item d-flex justify-content-between">Timotocuicas <span class="badge text-bg-secondary">Andes</span></li>
+            <li class="list-group-item d-flex justify-content-between">Pemón <span class="badge text-bg-warning">Bolívar</span></li>
+            <li class="list-group-item d-flex justify-content-between">Warao <span class="badge text-bg-info">Delta Amacuro</span></li>
+            <li class="list-group-item d-flex justify-content-between">Wayuu <span class="badge text-bg-danger">Zulia</span></li>
+          </ul>
+        </div>
+
+        <div class="p-4">
+          <h4 class="fst-italic">Para saber más</h4>
+          <ol class="list-unstyled">
+            <li><a href="https://getbootstrap.com/docs/5.3/">Documentación de Bootstrap</a></li>
+            <li><a href="https://getbootstrap.com/docs/5.3/examples/">Ejemplos de Bootstrap</a></li>
+            <li><a href="https://whc.unesco.org/es/list/701">Parque Nacional Canaima (UNESCO)</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+  <p>Blog de demostración basado en la plantilla <a href="https://getbootstrap.com/docs/4.0/examples/blog/">Blog</a> de Bootstrap.</p>
+  <p class="mb-0"><a href="#">Volver arriba</a></p>
+</footer>
+
+<!-- MODAL: componente con JavaScript, sin escribir JavaScript -->
+<div class="modal fade" id="colabora" tabindex="-1" aria-labelledby="colaboraLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="colaboraLabel">Colabora con el blog</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form onsubmit="event.preventDefault(); this.closest('.modal-content').querySelector('.modal-body').innerHTML='<p class=&quot;mb-0&quot;>¡Gracias! Te escribiremos pronto.</p>'">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="pueblo" class="form-label">¿Sobre qué pueblo quieres escribir?</label>
+            <select class="form-select" id="pueblo">
+              <option>Yanomami</option><option>Timotocuicas</option><option>Pemón</option><option>Warao</option><option>Wayuu</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-achiote">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 3. El JS de Bootstrap: necesario para el modal -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

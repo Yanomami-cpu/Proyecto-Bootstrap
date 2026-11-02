@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" role="img" aria-label="Terrazas de cultivo andinas">
+  <rect width="200" height="250" fill="#a9c7d8"/>
+  <circle cx="150" cy="50" r="20" fill="#f2b632"/>
+  <path d="M0 250V200h200v50z" fill="#3d5a2e"/>
+  <path d="M0 200v-40h170v40z" fill="#557a3a"/>
+  <path d="M0 160v-40h130v40z" fill="#6f9446"/>
+  <path d="M0 120V80h90v40z" fill="#8bab55"/>
+  <path d="M0 80V45h50v35z" fill="#b5c76b"/>
+</svg>
